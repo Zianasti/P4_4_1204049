@@ -75,7 +75,7 @@ namespace P4_4_1204049
 
         private void tbEmail_Leave(object sender, EventArgs e)
         {
-            if (tbEmail.Text == "") //Comparison
+            if (tbEmail.Text == "") 
             {
                 epWarning.SetError(tbEmail, "Textbox Email tidak boleh kosong!");
                 epWrong.SetError(tbEmail, "");
@@ -109,7 +109,13 @@ namespace P4_4_1204049
             }
             else
             {
-                if ((tbJmlBuku.Text).All(Char.IsNumber)) //Numeric TextBox
+                if ((int.Parse(tbJmlBuku.Text) >= 4)) //Comparison
+                {
+                    epCorrect.SetError(tbJmlBuku, "");
+                    epWarning.SetError(tbJmlBuku, "Jumlah Buku yang dipinjam tidak boleh lebih dari 3");
+                    epWrong.SetError(tbJmlBuku, "");
+                }
+                else if ((tbJmlBuku.Text).All(Char.IsNumber)) //Numeric TextBox
                 {
                     epCorrect.SetError(tbJmlBuku, "Betul!");
                     epWarning.SetError(tbJmlBuku, "");
